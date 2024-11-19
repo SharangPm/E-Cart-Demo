@@ -1,9 +1,13 @@
 import React from 'react'
 import { Container, Nav, Navbar, Form, Badge } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { searchProduct } from '../Redux/slice/productSlice'
 
 
-function Header() {
+function Header({insideHome}) {
+    const dispatch = useDispatch()
+
     return (
         <Navbar expand="lg" className="bg-info">
             <Container>
@@ -13,11 +17,12 @@ function Header() {
                     </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Form.Control
+                {insideHome && <Form.Control
                     type="text"
                     placeholder="Search"
                     className="ms-5 w-25"
-                />
+                    onChange={e=>dispatch(searchProduct(e.target.value.toLowerCase()))}
+                />}
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link className="btn btn-outline-light">

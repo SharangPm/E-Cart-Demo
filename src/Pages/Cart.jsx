@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from '../Components/Header'
+
 
 function Cart() {
   return (
-    <div>
+    <>
+    <Header/>
       <div className="row container">
         <div className="col-lg-1"></div>
         <div className="col-lg-7">
@@ -37,7 +40,7 @@ function Cart() {
              </div>
           </div>
       </div>
-    </div>
+    </>
   )
 }
 
